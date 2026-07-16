@@ -1,12 +1,12 @@
 get:
   summary: Get node health status
-  description: Retrieve status of a Waku v2 node.
+  description: Retrieve status of a Logos Delivery node.
   operationId: healthcheck
   tags:
     - health
   responses:
     '200':
-      description: Health report of a Waku v2 node and its protocols.
+      description: Health report of a Logos Delivery node and its protocols.
       content:
         application/json:
           schema:

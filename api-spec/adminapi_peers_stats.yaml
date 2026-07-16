@@ -6,7 +6,7 @@ get:
     - admin
   responses:
     '200':
-      description: Information about a Waku v2 node.
+      description: Information about a Logos Delivery node.
       content:
         application/json:
           schema:

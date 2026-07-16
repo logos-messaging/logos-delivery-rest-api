@@ -1,6 +1,6 @@
 post:
   summary: Dynamic set log level on the node
-  description: Change the log level of a Waku v2 node.
+  description: Change the log level of a Logos Delivery node.
   operationId: setLogLevel
   tags:
     - admin

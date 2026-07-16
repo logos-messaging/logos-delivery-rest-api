@@ -1,12 +1,12 @@
 get:
   summary: Get node info
-  description: Retrieve information about a Waku v2 node.
+  description: Retrieve information about a Logos Delivery node.
   operationId: getNodeInfo
   tags:
     - debug
   responses:
     '200':
-      description: Information about a Waku v2 node.
+      description: Information about a Logos Delivery node.
       content:
         application/json:
           schema:

@@ -1,2 +1,2 @@
 # waku-rest-api
-Open API specification of Waku v2 client interface 
+Open API specification of Logos Delivery client interface 
