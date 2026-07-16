@@ -1,0 +1,27 @@
+# /messaging/v1/events/send/{requestId}:
+get: # get_messaging_v1_events_send_by_id
+  summary: Poll the send events for one request id
+  description: Returns the buffered send events for a single request id, then removes them (evict-after-poll). The request id is the value returned by POST /messaging/v1/messages.
+  operationId: getMessagingSendEventsById
+  tags:
+    - messaging
+  parameters:
+    - in: path
+      name: requestId   # Note the name is the same as in the path
+      required: true
+      schema:
+        type: string
+      description: The request id returned by the send endpoint.
+  responses:
+    '200':
+      description: The buffered send events for the request id.
+      content:
+        application/json:
+          schema:
+            $ref: './schemas/apitypes.yaml#/SendStatus'
+    '404':
+      description: No send events buffered for the given request id.
+    '4XX':
+      description: Bad request.
+    '5XX':
+      description: Unexpected error.

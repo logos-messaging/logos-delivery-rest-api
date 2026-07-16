@@ -28,6 +28,8 @@ tags:
     description: Control of the content filtering. See [12/WAKU2-FILTER](https://rfc.vac.dev/spec/12/) RFC
   - name: filter_legacy
     description: Obsolate Filter interface kept for compatibility reason. Will be removed in future.
+  - name: messaging
+    description: High-level messaging client interface (subscribe / send by content topic) and poll-based observation of send and received events.
 paths:
   /health:
     $ref: "./healthapi.yaml"
@@ -89,6 +91,16 @@ paths:
     $ref: "./filterapi_v2_subscriptions_all.yaml"
   /filter/v2/messages/{contentTopic}:
     $ref: "./filterapi_v2_messages.yaml"
+  /messaging/v1/subscriptions:
+    $ref: "./messagingapi_subscriptions.yaml"
+  /messaging/v1/messages:
+    $ref: "./messagingapi_messages.yaml"
+  /messaging/v1/events/send:
+    $ref: "./messagingapi_events_send.yaml"
+  /messaging/v1/events/send/{requestId}:
+    $ref: "./messagingapi_events_send_by_id.yaml"
+  /messaging/v1/events/received:
+    $ref: "./messagingapi_events_received.yaml"
 components:
   schemas:
     $ref: "./schemas/apitypes.yaml"

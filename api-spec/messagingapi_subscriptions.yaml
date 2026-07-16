@@ -1,0 +1,50 @@
+# /messaging/v1/subscriptions:
+post: # post_messaging_v1_subscriptions
+  summary: Subscribe the messaging client to an array of content topics
+  description: Subscribe the messaging client to an array of Content topics.
+  operationId: postMessagingSubscriptions
+  tags:
+    - messaging
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: './schemas/apitypes.yaml#/ContentTopic'
+  responses:
+    '200':
+      description: OK
+      content:
+        text/plain:
+          schema:
+            type: string
+    '4XX':
+      description: Bad request.
+    '5XX':
+      description: Unexpected error.
+
+delete: # delete_messaging_v1_subscriptions
+  summary: Unsubscribe the messaging client from an array of content topics
+  description: Unsubscribe the messaging client from an array of Content topics.
+  operationId: deleteMessagingSubscriptions
+  tags:
+    - messaging
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: array
+          items:
+            $ref: './schemas/apitypes.yaml#/ContentTopic'
+  responses:
+    '200':
+      description: OK
+      content:
+        text/plain:
+          schema:
+            type: string
+    '4XX':
+      description: Bad request.
+    '5XX':
+      description: Unexpected error.

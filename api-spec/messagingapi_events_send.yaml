@@ -1,0 +1,16 @@
+# /messaging/v1/events/send:
+get: # get_messaging_v1_events_send
+  summary: Poll all buffered send events
+  description: Returns all buffered send events grouped by request id, then clears them (evict-after-poll). Send events are buffered because REST is a poll-based surface over the interactive MessagingClient events.
+  operationId: getMessagingSendEvents
+  tags:
+    - messaging
+  responses:
+    '200':
+      description: The buffered send events, grouped by request id.
+      content:
+        application/json:
+          schema:
+            $ref: './schemas/apitypes.yaml#/SendStatusList'
+    '5XX':
+      description: Unexpected error.
