@@ -1,0 +1,23 @@
+# /messaging/v1/messages:
+post: # post_messaging_v1_messages
+  summary: Send a message through the messaging client
+  description: Sends a message (a MessageEnvelope) through the messaging client and returns the request id used to correlate the subsequent send events.
+  operationId: postMessagingMessage
+  tags:
+    - messaging
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: './schemas/apitypes.yaml#/MessagingJsonEnvelope'
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: './schemas/apitypes.yaml#/MessagingSendResponse'
+    '4XX':
+      description: Bad request.
+    '5XX':
+      description: Unexpected error.

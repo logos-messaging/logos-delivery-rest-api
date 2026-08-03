@@ -1,0 +1,16 @@
+# /messaging/v1/events/received:
+get: # get_messaging_v1_events_received
+  summary: Poll buffered received messages
+  description: Returns buffered received messages (up to the cache capacity, oldest first), then clears them (evict-after-poll). Optimized for polling; each record carries the message hash and the full received WakuMessage.
+  operationId: getMessagingReceivedMessages
+  tags:
+    - messaging
+  responses:
+    '200':
+      description: The buffered received messages, oldest first.
+      content:
+        application/json:
+          schema:
+            $ref: './schemas/apitypes.yaml#/ReceivedMessagesResponse'
+    '5XX':
+      description: Unexpected error.

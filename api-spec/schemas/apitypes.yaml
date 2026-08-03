@@ -320,3 +320,90 @@ HealthReport:
         type: object
         additionalProperties:
           $ref: "#/HealthStatus"
+
+## Messaging API types
+
+MessagingJsonEnvelope:
+  type: object
+  description: JSON wire form of the messaging MessageEnvelope (the send input).
+  properties:
+    payload:
+      type: string
+      format: byte
+    contentTopic:
+      $ref: "#/ContentTopic"
+    ephemeral:
+      type: boolean
+    meta:
+      type: string
+      format: byte
+  required:
+    - payload
+    - contentTopic
+
+MessagingSendResponse:
+  type: object
+  properties:
+    requestId:
+      type: string
+      description: Correlates the send with subsequent send events (sent/propagated/error).
+  required:
+    - requestId
+
+SendEventRecord:
+  type: object
+  properties:
+    kind:
+      type: string
+      enum:
+        - "sent"
+        - "propagated"
+        - "error"
+    messageHash:
+      type: string
+    error:
+      type: string
+      description: Populated only when kind is "error".
+    timestamp:
+      type: integer
+      format: int64
+      description: Nanoseconds, stamped when the event was cached.
+  required:
+    - kind
+    - messageHash
+    - timestamp
+
+SendStatus:
+  type: object
+  description: All send events observed so far for a single request id.
+  properties:
+    requestId:
+      type: string
+    events:
+      type: array
+      items:
+        $ref: "#/SendEventRecord"
+  required:
+    - requestId
+    - events
+
+SendStatusList:
+  type: array
+  items:
+    $ref: "#/SendStatus"
+
+ReceivedMessageRecord:
+  type: object
+  properties:
+    messageHash:
+      type: string
+    message:
+      $ref: "#/RelayWakuMessage"
+  required:
+    - messageHash
+    - message
+
+ReceivedMessagesResponse:
+  type: array
+  items:
+    $ref: "#/ReceivedMessageRecord"
