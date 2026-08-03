@@ -346,7 +346,7 @@ MessagingSendResponse:
   properties:
     requestId:
       type: string
-      description: Correlates the send with its MessageSent / MessageError events.
+      description: Correlates the send with subsequent send events (sent/propagated/error).
   required:
     - requestId
 

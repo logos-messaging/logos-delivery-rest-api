@@ -21,7 +21,7 @@ get: # get_messaging_v1_events_send_by_id
             $ref: './schemas/apitypes.yaml#/SendStatus'
     '404':
       description: No send events buffered for the given request id.
-    '4XX':
+    '400':
       description: Bad request.
     '5XX':
       description: Unexpected error.

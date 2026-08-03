@@ -1,7 +1,7 @@
 # /messaging/v1/subscriptions:
 post: # post_messaging_v1_subscriptions
   summary: Subscribe the messaging client to an array of content topics
-  description: Subscribe the messaging client to an array of Content topics.
+  description: Subscribe the messaging client to an array of content topics.
   operationId: postMessagingSubscriptions
   tags:
     - messaging
@@ -26,7 +26,7 @@ post: # post_messaging_v1_subscriptions
 
 delete: # delete_messaging_v1_subscriptions
   summary: Unsubscribe the messaging client from an array of content topics
-  description: Unsubscribe the messaging client from an array of Content topics.
+  description: Unsubscribe the messaging client from an array of content topics.
   operationId: deleteMessagingSubscriptions
   tags:
     - messaging
