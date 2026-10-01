@@ -97,10 +97,12 @@ get:
     - name: pageSize
       in: query
       schema:
-        type: string
+        type: integer
+        default: 20
       description: >
-        Number of messages to retrieve per page
-      example: '5'
+        Number of messages to retrieve per page.
+        Defaults to 20 when omitted or 0; values above 100 are capped to 100.
+      example: 5
 
     - name: ascending
       in: query
